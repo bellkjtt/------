@@ -4,7 +4,7 @@ import requests
 server_url = 'http://127.0.0.1:8000/yolov8/predict/'
 
 # Parameters
-data = {'size': 640, 'confidence': 0.5, 'iou': 0.25}
+data = {'size': 320, 'confidence': 0.3, 'iou': 0.25}
 
 # 비디오 캡처 객체 생성
 # cap = cv2.VideoCapture(0)

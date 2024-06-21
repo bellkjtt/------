@@ -3,7 +3,7 @@ import numpy as np
 
 class YOLOv8Model:
     def __init__(self, confidence=0.5, iou=0.25):
-        self.model = YOLO('yolov8n.pt')
+        self.model = YOLO('yolov8n.onnx')
         self.confidence = confidence
         self.iou = iou
 
