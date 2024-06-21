@@ -1,11 +1,15 @@
 import cv2
 import requests
-
-# 서버 URL 설정 (로컬 호스트)
+# Server URL
 server_url = 'http://127.0.0.1:8000/yolov8/predict/'
 
+# Parameters
+data = {'size': 640, 'confidence': 0.5, 'iou': 0.25}
+
 # 비디오 캡처 객체 생성
-cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('videoplayback.mp4')
+
 
 while True:
     # 프레임 캡처
@@ -19,7 +23,7 @@ while True:
     _, img_encoded = cv2.imencode('.jpg', frame)
     
     # 서버로 이미지 전송
-    response = requests.post(server_url, files={'image': img_encoded.tobytes()})
+    response = requests.post(server_url, files={'image': img_encoded.tobytes()},data=data)
     
     # 서버의 응답 출력
     if response.ok:
